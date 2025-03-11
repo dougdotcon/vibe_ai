@@ -1,47 +1,169 @@
-For AGIHouseSF Hackathon
+# Vibe AI 🌐
 
-We store all the info about our social network in local DB
+<div align="center">
 
-Then we can ask it questions like: "who in my network is investing in Seed Stage AI companies?" 
-Or
-"Who in my network just left a company in the last couple months" 
+![Version](https://img.shields.io/badge/version-0.1.0-blue.svg?style=flat-square)
+![Status](https://img.shields.io/badge/status-prototype-orange.svg?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)
 
-It can also recommend quick 5m tasks to help empower your network like
-"I noticed in your network your friend Jim mentioned they are leaving their space company to start something new, and your friend Helen invests in ambitious founders, you should intro them: here are the two emails."
+> *Developed for the AGIHouseSF Hackathon* 🏆
 
-# Design:
-- Scraping. Linkedin. Messenger. anywhere else. A mix of public facing data, and private dms
-	[ ] todo design ingestion interface so ppl can write their own scrapers ezpz
-- Database: SEt of all the people, their public facing network info, and a dump of private DMs
-	[ ] todo design DB schema to work generically with many frontends/ingestion patterns
-- AI layer: can query DB for insights
-- Frontend: Some local app or streamlit thing or react app or CLI to visualize insights
+</div>
 
-# How to contribute
-3 Major chunks of code, each should be able to run standalone as mini projects you can hack on. Kyle Morris will orchestrate the DB layer + make things speak nicely to eachother.
+---
 
-## Scraping
-If you want to write a scraper add a file or function to /scrapers that you could run standalone to fetch a bunch of useful info, such as linkedin dms, or facebook profile info. Make sure you figure out the auth, test it so it works reliably
+## 📋 Overview
 
-## AI Layer: 
-If you want to try writing your own query logic add a file to the /query directory that reads the Database and then outputs stuff, can just be in CLI for now
+Vibe AI is an intelligent tool that stores and analyzes your social network information in a local database, enabling powerful queries and valuable insights about your network of contacts.
 
-## Frontend
-If you want to try some frontend, go to /frontend and make your own subdirectory. For eg., /frontend/python_cli if you want to try a CLI or /frontend/nextapp if you want to try a jsx app, or /frontend/streamlit if you want a streamlit app. Make sure you don't break the other frontends with yours
+<div align="center">
+  <img src="https://via.placeholder.com/800x400?text=Vibe+AI+Network+Visualization" alt="Vibe AI Concept" width="600"/>
+</div>
 
-### Adding Data: 
+### ✨ What Vibe AI can do:
 
-How to use: 
-- create a new database: run `python src/db_create_collection.py`, type CREATE 
-- Reset (erase) database: run `python src/db_create_collection.py`, type RESET. then run `python src/db_create_collection.py` again, and type CREATE
+<table>
+  <tr>
+    <td width="50%" align="center"><b>🔍 Intelligent Queries</b></td>
+    <td width="50%" align="center"><b>🤝 Smart Recommendations</b></td>
+  </tr>
+  <tr>
+    <td>
+      <ul>
+        <li>"Who in my network is investing in early-stage AI companies?"</li>
+        <li>"Who in my network just left a company in the last few months?"</li>
+        <li>"Find connections working at Google with expertise in machine learning"</li>
+      </ul>
+    </td>
+    <td>
+      <ul>
+        <li>"I noticed your friend Jim mentioned they're leaving their space company to start something new, and your friend Helen invests in ambitious founders. You should introduce them: here are both emails."</li>
+        <li>"Your colleague Alex is looking for a UX designer - your contact Taylor just updated their profile as available for work"</li>
+      </ul>
+    </td>
+  </tr>
+</table>
 
-- add data:  run `python src/main.py`
-- query data: run `python src/db_query_data.py`
-- to run the local chromadb server, run `python src/main.py`
+---
 
-Main functions to update: 
-- chunk_long_document (if you want a different chunking algorithm)
-- chunk_long_document
+## 🏗️ Architecture
 
-*Notes on adding data*
-- Right now, we add each one in the same main.py. There's something about the chroma client that gets reset and so doesn't put it in the same spot. 
+The project is built with a modular architecture designed for flexibility and extensibility:
+
+<div align="center">
+
+```mermaid
+graph TD
+    A[Data Collection] -->|Raw Data| B[Database]
+    B -->|Structured Data| C[AI Layer]
+    C -->|Insights & Recommendations| D[User Interface]
+    D -->|Queries| C
+```
+
+</div>
+
+### 1. 📥 Data Collection
+| Source | Data Type | Status |
+|--------|-----------|--------|
+| LinkedIn | Profiles, Messages | ⏳ In Progress |
+| Messenger | Chat History | 🔜 Planned |
+| Email | Contact Info | 🔜 Planned |
+| Twitter | Public Posts | 🔜 Planned |
+
+- **Goal**: Flexible ingestion interface to facilitate the creation of custom collectors
+
+### 2. 💾 Database
+- Stores information about people, public network data, and message history
+- Powered by ChromaDB for efficient vector storage and retrieval
+- Designed to work with various front-ends and ingestion patterns
+
+### 3. 🧠 AI Layer
+- Queries the database to generate valuable insights
+- Uses advanced NLP to understand relationships and opportunities
+- Continuously improves recommendations based on user feedback
+
+### 4. 🖥️ Interface Options
+- 🖱️ Local desktop application
+- 🌐 Streamlit web interface
+- ⚛️ React web application
+- 📟 Command-line interface
+
+---
+
+## 🤝 How to Contribute
+
+<div align="center">
+  <img src="https://via.placeholder.com/800x200?text=Contribution+Workflow" alt="Contribution Workflow" width="600"/>
+</div>
+
+The project is divided into three main areas that can function independently:
+
+### 📊 Data Collection
+To contribute a data collector:
+1. Add a file or function to the `/scrapers` directory
+2. Make sure to solve authentication and test to ensure reliable operation
+3. The collector should be able to fetch useful information such as LinkedIn messages or Facebook profile data
+
+### 🧩 AI Layer
+To contribute query logic:
+1. Add a file to the `/query` directory
+2. Implement logic to read the database and generate results
+3. Output can initially be in CLI
+
+### 🎨 Frontend
+To contribute an interface:
+1. Create your own subdirectory in `/frontend`
+   - Examples: 
+     - `/frontend/python_cli` for CLI
+     - `/frontend/nextapp` for JSX app
+     - `/frontend/streamlit` for Streamlit app
+2. Make sure not to interfere with other interfaces
+
+---
+
+## 🚀 Usage Guide
+
+### ⚙️ Prerequisites
+- Python 3.8+
+- pip
+- Git
+
+### 🔧 Installation
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/vibe-ai.git
+cd vibe-ai
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### 🗃️ Database Configuration
+| Action | Command | Description |
+|--------|---------|-------------|
+| **Create** | `python src/db_create_collection.py` and type `CREATE` | Sets up a new database instance |
+| **Reset** | `python src/db_create_collection.py`, type `RESET`, then run again and type `CREATE` | Wipes and recreates the database |
+
+### 🔄 Operations
+| Action | Command | Description |
+|--------|---------|-------------|
+| **Add data** | `python src/main.py` | Imports data into the database |
+| **Query data** | `python src/db_query_data.py` | Runs queries against the database |
+| **Start server** | `python src/main.py` | Launches the ChromaDB server |
+
+### 🛠️ Customization
+Main functions to update:
+- `chunk_long_document` (for different chunking algorithms)
+
+### 📝 Notes
+> ⚠️ Currently, we add each item in the same `main.py`. There's an issue with the Chroma client that gets reset and doesn't store in the same location.
+
+---
+
+<div align="center">
+
+**[Documentation](https://github.com/yourusername/vibe-ai/wiki)** • 
+**[Report Bug](https://github.com/yourusername/vibe-ai/issues)** • 
+**[Request Feature](https://github.com/yourusername/vibe-ai/issues)**
+
+</div> 
