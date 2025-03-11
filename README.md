@@ -88,10 +88,6 @@ graph TD
 
 ## 🤝 How to Contribute
 
-<div align="center">
-  <img src="https://via.placeholder.com/800x200?text=Contribution+Workflow" alt="Contribution Workflow" width="600"/>
-</div>
-
 The project is divided into three main areas that can function independently:
 
 ### 📊 Data Collection
