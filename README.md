@@ -16,10 +16,6 @@
 
 Vibe AI is an intelligent tool that stores and analyzes your social network information in a local database, enabling powerful queries and valuable insights about your network of contacts.
 
-<div align="center">
-  <img src="https://via.placeholder.com/800x400?text=Vibe+AI+Network+Visualization" alt="Vibe AI Concept" width="600"/>
-</div>
-
 ### ✨ What Vibe AI can do:
 
 <table>
