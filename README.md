@@ -1,10 +1,10 @@
-# Vibe AI 🌐
+# VibeAI 🌐
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue.svg?style=flat-square)
-![Status](https://img.shields.io/badge/status-prototype-orange.svg?style=flat-square)
-![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)
+[![Version](https://img.shields.io/badge/version-0.1.0-blue.svg?style=flat-square)](https://github.com/yourusername/vibe_ai)
+[![Status](https://img.shields.io/badge/status-prototype-orange.svg?style=flat-square)](https://github.com/yourusername/vibe_ai)
+[![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](https://github.com/yourusername/vibe_ai)
 
 > *Developed for the AGIHouseSF Hackathon* 🏆
 
@@ -14,27 +14,27 @@
 
 ## 📋 Overview
 
-Vibe AI is an intelligent tool that stores and analyzes your social network information in a local database, enabling powerful queries and valuable insights about your network of contacts.
+**VibeAI** is an intelligent relationship intelligence platform that consolidates and analyzes your social network data into a secure, local database. By leveraging advanced AI, it transforms scattered contact information into a powerful tool for professional networking, strategic introductions, and actionable insights.
 
-### ✨ What Vibe AI can do:
+### ✨ Key Capabilities
 
 <table>
   <tr>
     <td width="50%" align="center"><b>🔍 Intelligent Queries</b></td>
-    <td width="50%" align="center"><b>🤝 Smart Recommendations</b></td>
+    <td width="50%" align="center"><b>🤝 Strategic Recommendations</b></td>
   </tr>
   <tr>
     <td>
       <ul>
         <li>"Who in my network is investing in early-stage AI companies?"</li>
-        <li>"Who in my network just left a company in the last few months?"</li>
-        <li>"Find connections working at Google with expertise in machine learning"</li>
+        <li>"Identify contacts who have recently left their roles in the last 3 months"</li>
+        <li>"Find connections at Google with expertise in machine learning"</li>
       </ul>
     </td>
     <td>
       <ul>
-        <li>"I noticed your friend Jim mentioned they're leaving their space company to start something new, and your friend Helen invests in ambitious founders. You should introduce them: here are both emails."</li>
-        <li>"Your colleague Alex is looking for a UX designer - your contact Taylor just updated their profile as available for work"</li>
+        <li>"Your friend Jim is exploring new ventures; your contact Helen invests in founders. Suggest an introduction with their contact details."</li>
+        <li>"Alex needs a UX designer; your network contact Taylor is actively seeking new opportunities."</li>
       </ul>
     </td>
   </tr>
@@ -44,118 +44,107 @@ Vibe AI is an intelligent tool that stores and analyzes your social network info
 
 ## 🏗️ Architecture
 
-The project is built with a modular architecture designed for flexibility and extensibility:
+VibeAI is built on a modular, extensible architecture designed for privacy and flexibility.
 
 <div align="center">
 
-```mermaid
+mermaid
 graph TD
-    A[Data Collection] -->|Raw Data| B[Database]
-    B -->|Structured Data| C[AI Layer]
-    C -->|Insights & Recommendations| D[User Interface]
-    D -->|Queries| C
-```
+    A[Data Sources] -->|Ingestion| B[Local Database]
+    B -->|Structured Data| C[AI Analysis Layer]
+    C -->|Insights & Recs| D[User Interface]
+    D -->|User Queries| C
+    C -.->|Context| D
+
 
 </div>
 
-### 1. 📥 Data Collection
+### 1. 📥 Data Ingestion Layer
+
 | Source | Data Type | Status |
 |--------|-----------|--------|
-| LinkedIn | Profiles, Messages | ⏳ In Progress |
-| Messenger | Chat History | 🔜 Planned |
-| Email | Contact Info | 🔜 Planned |
-| Twitter | Public Posts | 🔜 Planned |
+| LinkedIn | Profiles, Connections, Messages | ⏳ In Progress |
+| Messenger | Chat History & Context | 🔜 Planned |
+| Email | Contacts & Correspondence | 🔜 Planned |
+| Twitter/X | Public Posts & Interactions | 🔜 Planned |
 
-- **Goal**: Flexible ingestion interface to facilitate the creation of custom collectors
+*Goal: Provide a flexible ingestion framework to easily integrate new data sources via custom collectors.*
 
-### 2. 💾 Database
-- Stores information about people, public network data, and message history
-- Powered by ChromaDB for efficient vector storage and retrieval
-- Designed to work with various front-ends and ingestion patterns
+### 2. 💾 Local Database
 
-### 3. 🧠 AI Layer
-- Queries the database to generate valuable insights
-- Uses advanced NLP to understand relationships and opportunities
-- Continuously improves recommendations based on user feedback
+- **Core Function**: Securely stores people, network data, and interaction history.
+- **Technology**: Powered by ChromaDB for efficient vector storage and semantic search.
+- **Privacy-First**: All data remains on your local machine.
+
+### 3. 🧠 AI Analysis Layer
+
+- **Insight Generation**: Analyzes your network to surface valuable opportunities and connections.
+- **NLP Engine**: Understands complex queries and relationship contexts.
+- **Adaptive Learning**: Refines recommendations based on user interactions and feedback.
 
 ### 4. 🖥️ Interface Options
-- 🖱️ Local desktop application
-- 🌐 Streamlit web interface
-- ⚛️ React web application
-- 📟 Command-line interface
+
+- 🖱️ **Desktop App**: Native experience for power users.
+- 🌐 **Streamlit UI**: Rapid, web-based interface for quick access.
+- ⚛️ **React Web App**: Modern, full-featured web client.
+- 📟 **CLI**: Command-line interface for automation and scripting.
 
 ---
 
 ## 🤝 How to Contribute
 
-The project is divided into three main areas that can function independently:
+VibeAI is designed with a modular architecture, allowing components to function and be developed independently. We welcome contributions in any of the following areas:
 
-### 📊 Data Collection
-To contribute a data collector:
-1. Add a file or function to the `/scrapers` directory
-2. Make sure to solve authentication and test to ensure reliable operation
-3. The collector should be able to fetch useful information such as LinkedIn messages or Facebook profile data
+### 📊 Data Collection & Scrapers
 
-### 🧩 AI Layer
-To contribute query logic:
-1. Add a file to the `/query` directory
-2. Implement logic to read the database and generate results
-3. Output can initially be in CLI
+To contribute a new data collector:
+1. Navigate to the `/scrapers` directory.
+2. Create a new file or function for your target data source.
+3. Implement robust authentication and error handling.
+4. Ensure data is formatted for our standard schema.
+5. Submit a Pull Request with a brief description of the source and data types.
 
-### 🎨 Frontend
-To contribute an interface:
-1. Create your own subdirectory in `/frontend`
-   - Examples: 
-     - `/frontend/python_cli` for CLI
-     - `/frontend/nextapp` for JSX app
-     - `/frontend/streamlit` for Streamlit app
-2. Make sure not to interfere with other interfaces
+### 🧠 AI & Analysis Logic
 
----
+- Help refine the NLP models for better query understanding.
+- Develop new algorithms for recommendation and insight generation.
+- Contribute to the feedback loop logic for adaptive learning.
 
-## 🚀 Usage Guide
+### 🖥️ UI/UX Development
 
-### ⚙️ Prerequisites
-- Python 3.8+
-- pip
-- Git
-
-### 🔧 Installation
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/vibe-ai.git
-cd vibe-ai
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-### 🗃️ Database Configuration
-| Action | Command | Description |
-|--------|---------|-------------|
-| **Create** | `python src/db_create_collection.py` and type `CREATE` | Sets up a new database instance |
-| **Reset** | `python src/db_create_collection.py`, type `RESET`, then run again and type `CREATE` | Wipes and recreates the database |
-
-### 🔄 Operations
-| Action | Command | Description |
-|--------|---------|-------------|
-| **Add data** | `python src/main.py` | Imports data into the database |
-| **Query data** | `python src/db_query_data.py` | Runs queries against the database |
-| **Start server** | `python src/main.py` | Launches the ChromaDB server |
-
-### 🛠️ Customization
-Main functions to update:
-- `chunk_long_document` (for different chunking algorithms)
-
-### 📝 Notes
-> ⚠️ Currently, we add each item in the same `main.py`. There's an issue with the Chroma client that gets reset and doesn't store in the same location.
+- Build new interfaces (Web, Desktop, CLI).
+- Improve existing UI components and user flows.
+- Enhance data visualization for network insights.
 
 ---
 
-<div align="center">
+## 🚀 Getting Started (Quick Setup)
 
-**[Documentation](https://github.com/yourusername/vibe-ai/wiki)** • 
-**[Report Bug](https://github.com/yourusername/vibe-ai/issues)** • 
-**[Request Feature](https://github.com/yourusername/vibe-ai/issues)**
+> **Prerequisites**: Python 3.9+ and `pip` installed.
 
-</div> 
+1. **Clone the Repository**
+   bash
+   git clone https://github.com/yourusername/vibe_ai.git
+   cd vibe_ai
+   
+
+2. **Install Dependencies**
+   bash
+   pip install -r requirements.txt
+   
+
+3. **Configure Data Sources**
+   - Set up your API keys or authentication credentials in a `.env` file.
+   - Follow the instructions in the `/scrapers` documentation.
+
+4. **Run the Application**
+   bash
+   # Example for the Streamlit interface
+   python -m streamlit run ui/streamlit_app.py
+   
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
